@@ -1,0 +1,12 @@
+La librería BooleanZipper proporciona funciones para comprimir y descomprimir arreglos de valores booleanos en arreglos de enteros de 16 bits, para un almacenamiento más eficiente. Además, ofrece funciones para leer, escribir y cambiar los valores booleanos en posiciones específicas de los arreglos comprimidos.
+El factor de compresión es de 1/8 + 16 bits, lo que significa que cada booleano que se comprime, originalmente pesa 8 bits y en la versión comprimida solo ocupa 1 bit. Los 16 bits adicionales corresponden al primer uint16 del arreglo comprimido, que representa la longitud del arreglo original.
+
+zipArray: toma un arreglo de valores booleanos y devuelve un arreglo de enteros de 16 bits que representan los valores booleanos comprimidos. Parámetros de entrada: _values (arreglo de bool), Parámetros de salida: arreglo de uint16.
+
+unZipArray: toma un arreglo de enteros de 16 bits que representan valores booleanos comprimidos y devuelve un arreglo de valores booleanos descomprimidos. Parámetros de entrada: arreglo de uint16, Parámetros de salida: arreglo de bool.
+
+readPosition: toma un arreglo de enteros de 16 bits que representan valores booleanos comprimidos y una posición en ese arreglo, y devuelve el valor booleano en esa posición. Parámetros de entrada: _data (arreglo de uint16), _pos (posición en el arreglo), Parámetros de salida: valor bool.
+
+writePosition: toma un arreglo de enteros de 16 bits que representan valores booleanos comprimidos, un valor booleano y una posición en ese arreglo, y actualiza el valor booleano en esa posición. Parámetros de entrada: _data (arreglo de uint16), _value (valor bool), _pos (posición en el arreglo), Parámetros de salida: arreglo de uint16.
+
+tooglePosition: toma un arreglo de enteros de 16 bits que representan valores booleanos comprimidos y una posición en ese arreglo, y cambia el valor booleano en esa posición de verdadero a falso o viceversa. Parámetros de entrada: _data (arreglo de uint16), _pos (posición en el arreglo), Parámetros de salida: arreglo de uint16.
