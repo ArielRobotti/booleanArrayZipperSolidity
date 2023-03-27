@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
+// created by arielrobotti@gmail.com
 pragma solidity >=0.8.2 <0.9.0;
 
 library BooleanZipper{
