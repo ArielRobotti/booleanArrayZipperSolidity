@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.2 <0.9.0;
-
 import "../libs/BooleanZipper.sol";
 
 contract Test {
@@ -12,15 +11,16 @@ contract Test {
     function len() public view returns(uint16){
         return compArray[0];
     }
-
     function getPosition(uint16 _pos) public view returns (bool) {
         return BooleanZipper.readPosition(compArray, _pos);
     }
-
     function setPosition(uint16 _pos, bool _value) public {
         compArray = BooleanZipper.writePosition(compArray, _value, _pos);
     }
     function tooglePosition(uint16 _pos)public{
         compArray = BooleanZipper.tooglePosition(compArray, _pos);
+    }
+    function desCompress()public view returns(bool[] memory){
+        return BooleanZipper.unZipArray(compArray);
     }
 }

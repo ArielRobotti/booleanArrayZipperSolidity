@@ -28,7 +28,7 @@ library BooleanZipper{
     }
     function unZipArray(uint16[] memory array) public pure returns(bool[]memory){
         uint16 len = array[0];
-        bool[] memory result = new bool[](0);
+        bool[] memory result = new bool[](len);
         uint16 count = 0;
         for(uint16 _cluster=1; _cluster<len/16+1; _cluster++){
             for(uint16 _bit=0; _bit<8; _bit++){
