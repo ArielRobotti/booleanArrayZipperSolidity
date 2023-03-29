@@ -3,24 +3,26 @@ pragma solidity >=0.8.2 <0.9.0;
 import "../libs/BooleanZipper.sol";
 
 contract Test {
-    uint16[] private compArray = new uint16[](0);
+    using BooleanZipper for bool[];
+    using BooleanZipper for uint16[];
+    uint16[] private compArray;
 
     function compress(bool[] memory _in) public {
-        compArray = BooleanZipper.zipArray(_in);
+        compArray = _in.zipArray();
     }
     function len() public view returns(uint16){
         return compArray[0];
     }
     function getPosition(uint16 _pos) public view returns (bool) {
-        return BooleanZipper.readPosition(compArray, _pos);
+        return compArray.readPosition(_pos);
     }
     function setPosition(uint16 _pos, bool _value) public {
-        compArray = BooleanZipper.writePosition(compArray, _value, _pos);
+        compArray = compArray.writePosition(_value, _pos);
     }
     function tooglePosition(uint16 _pos)public{
-        compArray = BooleanZipper.tooglePosition(compArray, _pos);
+        compArray = compArray.tooglePosition(_pos);
     }
     function desCompress()public view returns(bool[] memory){
-        return BooleanZipper.unZipArray(compArray);
+        return compArray.unZipArray();
     }
 }
