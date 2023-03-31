@@ -59,7 +59,6 @@ library BooleanZipper{
         return _data;
     }
     function tooglePosition(uint16[] storage _data,uint16 _pos) public returns(uint16[] memory){
-        require(_pos < _data[0], "Posicion fuera de rango");
         if(readPosition(_data, _pos)){
            writePosition(_data,false,_pos); 
         } 
